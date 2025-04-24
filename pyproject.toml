@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "personal-homepage"
+description = ''
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+keywords = []
+authors = [
+  { name = "Richard Oberdieck", email = "r.oberdieck@gmail.com" },
+]
+dependencies = [
+  "mkdocs", 
+  "mkdocs-material"
+  ]
+version = "1.0"
+
+[project.urls]
+Source = "https://github.com/RichardOberdieck/personal-homepage"
+
+[tool.hatch.envs.default.scripts]
+build = "mkdocs build --clean"
+serve = "mkdocs serve --dev-addr localhost:8000"
+deploy = "mkdocs gh-deploy --force"
