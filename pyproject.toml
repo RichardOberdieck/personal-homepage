@@ -24,6 +24,11 @@ Source = "https://github.com/RichardOberdieck/personal-homepage"
 [tool.hatch.envs.default]
 installer = "uv"
 
+[tool.hatch.build]
+include = [       
+   "docs/",
+]
+
 [tool.hatch.envs.default.scripts]
 build = "mkdocs build --clean"
 serve = "mkdocs serve --dev-addr localhost:8000"
