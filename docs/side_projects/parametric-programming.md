@@ -1,0 +1,7 @@
+# Parametric programming
+
+"Normal" mathematical optimization asks what a particular solution is, i.e. we look for `x=5` or `x=1`. However, what if we would like to know how the solution changes *as a function of a parameter*? This is called [parametric programming](https://en.wikipedia.org/wiki/Parametric_programming)[^1], and it is a wonderfully quirky subject, that I spent my PhD on.
+
+Right now, I don't want to take too much time writing about it, but one day, it will come :) Until then, [this book](https://www.amazon.com/Multi-parametric-Optimization-Operations-Research-Management-ebook/dp/B08NGMXZ8D/ref=sr_1_4?crid=34QG55F1U2M6R&dib=eyJ2IjoiMSJ9.0wZ87_emypaITSLV4Hoe7jcLAibnmSDi8_irNnttaoTx_dukEKviaMi98Mi7aXv2swpH__0OEWYw95nfiMH_70rwFXin9F8joLh0xFyH6vkyOcNfMOE4hkViuo5_lbYlqlBDeEA-REWc3mCWkzybuPJaTxLw6bmTbWAv04NKtOcGBYYfB4IOrKSzlh3cA1FA624VUrziqsKunuKemesvcyQ-Drk0LZCRofaY3ZRA2cGiSj69TalSwsPJkX-yjBwmsz3lExb9-kPY9rzbaBLqO547HyScJi3coOey2bpj9JU.PCxADiKebkWwWn2dyifHfZWsITMX6wsPFwz-xJyymjw&dib_tag=se&keywords=oberdieck&qid=1745609418&sprefix=oberdie%2Caps%2C232&sr=8-4) I co-authored covers all the fundamentals.
+
+[^1]: Fun fact: I [created](https://en.wikipedia.org/w/index.php?title=Parametric_programming&action=history) that Wikipedia page.
