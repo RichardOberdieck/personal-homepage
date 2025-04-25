@@ -25,3 +25,6 @@ Source = "https://github.com/RichardOberdieck/personal-homepage"
 build = "mkdocs build --clean"
 serve = "mkdocs serve --dev-addr localhost:8000"
 deploy = "mkdocs gh-deploy --force"
+
+[tool.hatch.metadata]
+allow-direct-references = true
