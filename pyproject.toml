@@ -22,6 +22,7 @@ version = "1.0"
 Source = "https://github.com/RichardOberdieck/personal-homepage"
 
 [tool.hatch.envs.default]
+installer = "uv"
 detached = true
 
 [tool.hatch.envs.default.scripts]
