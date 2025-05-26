@@ -38,7 +38,7 @@ I think that's a good starting point. The author then asks three questions in th
 
 This topic is full of stories, big and small, which show all its various facets. So the biggest challenge is actually not finding cool stories, but creating a compelling *narrative*, i.e. a structure where the reader can follow along.
 
-This is where the book is falling short. The stories are there, even some technical detail and annotated code in the appendix, but instead of going through 5 different "big" hacks, I would have prefered to see a structure around the various attack vectors, rather than a chronological approach. 
+This is where the book is falling short. The stories are there, even some technical detail and annotated code in the appendix, but instead of going through 5 different "big" hacks, I would have preferred to see a structure around the various attack vectors, rather than a chronological approach. 
 
 Having said this, there was a ton of things to learn in the book. One of the biggest ones was that Microsoft knowlingly traded security for feature development, causing billions of hours of the "Blue Screen of Death" all around the world. They did this because they could not be held liable under American law, and therefore *decided* not to care. At some point they did, and the blue screen started disappearing.
 

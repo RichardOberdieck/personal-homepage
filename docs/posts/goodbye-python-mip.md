@@ -35,7 +35,7 @@ After the initial project was pushed, I had high hopes for this framework. Hooki
 
 ![commits-over-time](goodbye-python-mip/commits-over-time.png)
 
-Starting in mid-2020, the number of commits drastically drops. I suspect this has something to do with Haroldo Santos joining Amazon in October 2020, as the vast majority of commits (939) came from him. Túlio Toffolo also seems to have stopped commiting regularly after mid-2020.
+Starting in mid-2020, the number of commits drastically drops. I suspect this has something to do with Haroldo Santos joining Amazon in October 2020, as the vast majority of commits (939) came from him. Túlio Toffolo also seems to have stopped committing regularly after mid-2020.
 
 The project got some spikes in activity every 6 months or so, mostly driven by [Robert Schwarz](https://www.linkedin.com/in/robertcschwarz/) from Doing the Math and [Sebastian Heger](https://www.linkedin.com/in/hegersebastian/) with some input from Toffolo. We can see that still some code is added:
 
