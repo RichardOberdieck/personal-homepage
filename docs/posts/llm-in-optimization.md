@@ -106,7 +106,7 @@ Recently, Dirk posted [this video](https://www.linkedin.com/posts/dirkz_decision
 
 Unfortunately, Dirk did not respond to my request to test the system myself, so it is hard to know for sure.
 
-Nonetheless, based on the video, I forsee the same issues as with Gurobot. However, due to the slick UI that sits on top of it, it will probably create an additional barrier to verification of the produced output from the LLM.
+Nonetheless, based on the video, I foresee the same issues as with Gurobot. However, due to the slick UI that sits on top of it, it will probably create an additional barrier to verification of the produced output from the LLM.
 
 ## What could be next?
 

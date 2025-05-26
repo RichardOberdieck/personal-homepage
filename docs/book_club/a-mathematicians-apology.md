@@ -42,7 +42,7 @@ Instead, I will highlight a couple of the subjects that he talks about. If you w
 
 ## About mathematicians
 - "A Mathematician, like a painter or a poet, is a maker of patterns. […] A mathematician, on the other hand, has no material to work with but ideas, and so his patterns are likely to last longer, since ideas wear less with time than words"
-- [About serious theorems]: "There are two things at any rate which seem essential, a certain *generality* and a cetain *depth*; but neither quality is easy to define at all precisely."
+- [About serious theorems]: "There are two things at any rate which seem essential, a certain *generality* and a certain *depth*; but neither quality is easy to define at all precisely."
 - "A property common to too many objects can hardly be very exciting, and mathematical ideas also become dim unless they have plenty of individuality."
 - [About beautiful theorems]: "There is a very high degree of unexpectedness, combined with *inevitability* and *economy*."
 
