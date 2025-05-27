@@ -16,9 +16,11 @@ categories:
 
 👏 It is well-written, and really quite fast. It has decent documentation, and also supports conic and nonlinear programming.
 
-😕 It does however not use all the nice things Python has to offer, which makes it more painful to work with than it has to be.
+💡💡💡💡💡💡💡💡💡💡💡💡💡
 
-⌛ With some effort, this could become my new daily driver for optimization modeling. However in its current form, the usage pains are higher than the awesome tech behind it.
+🙌 The internet is AWESOME! Based on my testing, I thought the constraint handling in `pyOptInterface` was bad. But then, I posted my article and got awesome feedback from [Robert Schwarz](https://www.linkedin.com/in/robertcschwarz/) about how to do this well. So now, I am a big fan 😊 
+
+🍂 I don't want to ignore my mishap, but I also don't think it adds value. So I am changing the article from ground up but with references to the original when needed. If you are interested, just go to [this commit](https://github.com/RichardOberdieck/personal-homepage/commit/d4492802678edddc7453decd2bdddcd5ba1de88e) in the repo.
 
 <!-- more -->
 
@@ -50,8 +52,8 @@ So given these use cases, my criteria for a good modeling framework is:
 
 | Criteria    | `pyOptInterface`    | `pyomo`             | `python-mip`
 | ----------- | --------------------| --------------------| --------------------
-| FOSS (license)       | ✅ ([MPL 2.0](https://github.com/metab0t/PyOptInterface/tree/master?tab=License-1-ov-file))                | ✅ ([Custom](https://github.com/Pyomo/pyomo?tab=License-1-ov-file))                 | ✅ ([EPL 2.0](https://github.com/coin-or/python-mip?tab=EPL-2.0-1-ov-file))
-| Ease-of-use | ❌                 | ❌                  | ✅
+| FOSS (license)       | ✅ ([MPL 2.0](https://github.com/metab0t/PyOptInterface/tree/master?tab=License-1-ov-file))                | ✅ ([BSD-3](https://github.com/Pyomo/pyomo?tab=License-1-ov-file))                 | ✅ ([EPL 2.0](https://github.com/coin-or/python-mip?tab=EPL-2.0-1-ov-file))
+| Ease-of-use | ✅                 | ❌                  | ✅
 | Fast        | ✅                | ❌                  | ✅
 | Maintained (last release) | ✅ ([19/3/2025](https://github.com/metab0t/PyOptInterface/releases/tag/v0.4.1))                | ✅ ([16/4/2025](https://github.com/Pyomo/pyomo/releases/tag/6.9.2))                 | ❌ ([4/1/2023](https://github.com/coin-or/python-mip/releases/tag/1.15.0))
 
@@ -60,7 +62,7 @@ So given these use cases, my criteria for a good modeling framework is:
 
 Needless to say that all of this is my own opinion, but let us dive into why I have that opinion of `pyOptInterface`.
 
-## The good
+## The obvious
 
 It's free and open-source, which is critical. However, there is a caveat:
 
@@ -69,83 +71,69 @@ It's free and open-source, which is critical. However, there is a caveat:
 
     > "All distribution of Covered Software in Source Code Form, including any Modifications that You create or to which You contribute, must be under the terms of this License." (Section 3.1)
 
-    So if you use this code to create code that you distribute, e.g. sell, then you need to open-source that code. For fun, [here](https://github.com/edent/BMW-OpenSource?tab=readme-ov-file) is how BMW fell into that one.
+What does that mean? I let [Oscar Dowson](https://www.linkedin.com/in/oscar-dowson-544704272/) fill you in:
 
-However, I am strong proponent of FOSS since [the world runs on it](https://truelist.co/blog/linux-statistics/). So thumbs up from me.
+!!! quote
+    The copyleft applies only to the source code distributed under MPL. If you made a Python package which depends on an MPL dependency, that package does not need to be released under MPL. You really need to worry only if you modify the source code of PyOptInterface and redistribute it. FWIW: JuMP uses MPL as well, and we find it is a good middle ground. You can do pretty much anything, including sell it in a commercial product, but you must release source modifications of the existing files back to the community.
+
+I am strong proponent of FOSS since [the world runs on it](https://truelist.co/blog/linux-statistics/). So thumbs up from me.
 
 Also, it seems to be maintained, although still not on v1. But I am sure that will come.
 
 Finally, it is fast. Since it hooks into the C++ interfaces of the various solvers, it saves itself the model construction hell of `pyomo` in Python, and hence is a breeze to work with in my experience.
 
-## The not so good
+## The not so obvious
 
-Really the only thing it falls short is its ease of use. And since I rate that quite highly, it is unfortunately sufficiently annoying for me to put the project aside for now. What do I mean? Let's a have look at some code derived from a [project of mine](https://github.com/RichardOberdieck/opti_test/blob/main/opti_test/model_builder.py) using `pyOptInterface`.
+!!! note
+    Previously, this section was critical of the way constraints needed to be written in `pyOptInterface`. However, thanks to [Robert Schwarz](https://www.linkedin.com/in/robertcschwarz/) I stand corrected. However, that then leads me to say something about the documentation 😊
 
-The variable building was fine:
+`pyOptInterface` is actually nice to use. At first, I thought it would not be, since this is what is given on the `README` of the package as example usage:
+
+```python
+import pyoptinterface as poi
+from pyoptinterface import highs
+
+model = highs.Model()
+
+x = model.add_variable(lb=0, ub=1, domain=poi.VariableDomain.Continuous, name="x")
+y = model.add_variable(lb=0, ub=1, domain=poi.VariableDomain.Integer, name="y")
+
+con = model.add_linear_constraint(x+y, poi.Geq, 1.2, name="con")
+
+obj = 2*x
+model.set_objective(obj, poi.ObjectiveSense.Minimize)
+```
+
+Also when looking at the [documentation](https://metab0t.github.io/PyOptInterface/constraint.html), it seems that this is the way to go:
+
+![docs](./pyoptinterface-review/docs-screenshot.png)
+
+However, this is **not** true. Instead, `pyOptInterface` took a page out of the book of `JuMP` and `Gurobi` and implemented it well. You can also write:
 
 ```python
 import pyoptinterface as poi
 from pyoptinterface import highs, VariableDomain
 
-
+N = 10
 model = highs.Model()
 
-x = {c: model.add_variable(domain=VariableDomain.Binary, 
-            name=f"x_{c}") for c in connections}
+x = {c: model.add_variable(domain=VariableDomain.Binary, name=f"x_{c}") for c in range(N)}
+
+model.add_linear_constraint(x[0] + x[1] <= 1.0)
+model.add_linear_constraint(x[0] + x[1] <= x[2])
+model.add_linear_constraint(x[1] == x[3])
 ```
 
-There is also an [`add_variables`](https://metab0t.github.io/PyOptInterface/common_model_interface.html#model.add_variables) and an [`add_m_variables`](https://metab0t.github.io/PyOptInterface/common_model_interface.html#model.add_m_variables), probably inspired by [Gurobi's matrix-friendly API](https://docs.gurobi.com/projects/optimizer/en/current/reference/python/func_mfunctions.html).
-
-With this variable, you can build expressions, such as objective functions:
-
+And even
 ```python
-model.set_objective(sum(c.get_cost() * x[c] for c in connections))
+model.add_linear_constraint(poi.quicksum(x.values()) == 1)
 ```
 
-This can be done [faster](https://metab0t.github.io/PyOptInterface/expression.html), but at what cost? Let's have a look:
+So they did implement [operator overload](https://www.geeksforgeeks.org/operator-overloading-in-python/), and allowed for left-hand side and right-hand side to mix, which is really nice. They also implemented a [`quicksum`](https://metab0t.github.io/PyOptInterface/container.html#quicksum) similar to [`gurobipy`](https://docs.gurobi.com/projects/optimizer/en/current/reference/python/func_global.html#quicksum), which is based on a [`tupledict`](https://metab0t.github.io/PyOptInterface/container.html#create-a-tupledict), another thing that `gurobipy` users will find [familiar](https://docs.gurobi.com/projects/optimizer/en/current/reference/python/tupledict.html).
 
-```python
-def fast_expr():
-    expr = poi.ExprBuilder()
-    for i in range(N):
-        expr += 0.5 * x[i] * x[i]
-        expr -= x[i]
-```
+And it works! This was my biggest problem when using it in my [`opti_test`](https://github.com/RichardOberdieck/opti_test) project, and somehow I missed it. But I am very happy to set the record straight. And although I may have had to know better, I suggest to change the docs to highlight this feature. It really is a game changer for me. This completely changes my opinion. When I didn't know, I wrote this as my conclusion:
 
-This may be faster, but I certainly don't want to write or maintain this.
+!!! quote
+    As [I've said before](https://oberdieck.dk/2024/11/12/goodbye-python-mip/), there is a big hole in the optimization landscape for a well-performing, easy to handle modeling framework. However, in its current form `pyOptInterface` is not it. However, they did a lot of things right. So with some ChatGPT, some inspiration from `python-mip` and other places and hopefully some contributors, this should be doable. I'm looking forward to it!
 
-And this brings us to the main issue: creating constraints. Here is how that goes:
-
-```python
-model.add_linear_constraint(
-    sum(x[c] for c in get_connections_for_link(link)) - y[link], 
-    poi.Eq, 
-    0
-)
-```
-
-Mathematically, this would be $\sum_{c\in C_l} x_c = y_l$ for a given $l$. So a very, very easy constraint. Yet, it is a pain to write, because:
-
-- Everything with a variable needs to be on the left-hand side
-- There is no [operator overload](https://www.geeksforgeeks.org/operator-overloading-in-python/), so we need to define the left-hand side, operator, and right-hand side separately.
-
-How could it be done differently? Let's look how this code would look in `python-mip`:
-
-```python
-from mip import Model, BINARY, xsum
-
-
-model = Model(solver_name="CBC")
-
-x = {c: model.add_var(f"x_{c}", var_type=BINARY) for c in connections}
-
-model.set_objective(xsum(c.get_cost() * x[c] for c in connections))
-
-model += xsum(x[c] for c in get_connections_for_link(link)) == y[link]
-```
-
-This is way, way easier to write. And when you have to write a lot of constraints, this stuff matters.
-
-## Conclusion
-
-As [I've said before](https://oberdieck.dk/2024/11/12/goodbye-python-mip/), there is a big hole in the optimization landscape for a well-performing, easy to handle modeling framework. However, in its current form `pyOptInterface` is not it. However, they did a lot of things right. So with some ChatGPT, some inspiration from `python-mip` and other places and hopefully some contributors, this should be doable. I'm looking forward to it!
+Now, I will probably use it as a daily driver for my optimization projects since it really does look nice. Thank you, [Yue Yang](https://www.linkedin.com/in/yang-yue-5b30681b0/) and [Ke Shi](https://keshi.pro/) for creating such a nice package! I hope it will continue to be developed and improved!
