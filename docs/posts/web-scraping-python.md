@@ -101,3 +101,5 @@ def get_rating_info_from_tag(beer_tag):
 
 There is a lot more to web-scraping than this: testing, dynamic content etc. However, this post is not about that. Rather, it is meant to show how easy it is to get going with web-scraping. Personally, I somehow always thought that it would be wildly complicated, but happy to be wrong :) Also, it shows why Python is such an awesome weapon. It might not be the fastest or most elegant, but ease-of-use? Oh, absolutely!
 
+<script data-goatcounter="https://oberdieck.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>

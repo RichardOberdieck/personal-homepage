@@ -112,3 +112,6 @@ The main problem with the article is that it uses a single example to make a gen
 That doesn't mean they shouldn't have done the study, or written the article. But as you may remember from my [benchmarking article](https://oberdieck.dk/p/pick-a-solver/): "The first rule of benchmarking is: **your test set defines your test results**". This is why benchmarking is so hard: because finding a representative and robust test data set is really time consuming.
 
 Fortunately, they are not saying anything I would call "completely wrong" in the article. But that doesn't mean they did a good job when creating their data from which they draw their conclusions.
+
+<script data-goatcounter="https://oberdieck.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>

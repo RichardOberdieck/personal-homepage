@@ -119,3 +119,6 @@ Some parameters do not translate between solvers. However, even that is valuable
 Benchmarking is hard. But there is a science and a craft behind it. So for as long as you have good test data, keep your hardware setup as clean as possible, and test the right parts of your code with sufficient levels of random seeds, you will get a reliable answer out.
 
 And I think it's fun! It's like going to a race track, but you get to play with the cars. And then sit back, and find out who's the best for you.
+
+<script data-goatcounter="https://oberdieck.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>

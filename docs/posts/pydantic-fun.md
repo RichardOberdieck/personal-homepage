@@ -65,3 +65,6 @@ class Test(BaseModel, validate_default=True, validate_assignment=True):
 ```
  
 As you would expect, the `validate_default` validates the default values, while `validate_assignment` validates the assignment.
+
+<script data-goatcounter="https://oberdieck.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>

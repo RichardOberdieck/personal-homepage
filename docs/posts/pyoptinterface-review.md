@@ -137,3 +137,6 @@ And it works! This was my biggest problem when using it in my [`opti_test`](http
     As [I've said before](https://oberdieck.dk/2024/11/12/goodbye-python-mip/), there is a big hole in the optimization landscape for a well-performing, easy to handle modeling framework. However, in its current form `pyOptInterface` is not it. However, they did a lot of things right. So with some ChatGPT, some inspiration from `python-mip` and other places and hopefully some contributors, this should be doable. I'm looking forward to it!
 
 Now, I will probably use it as a daily driver for my optimization projects since it really does look nice. Thank you, [Yue Yang](https://www.linkedin.com/in/yang-yue-5b30681b0/) and [Ke Shi](https://keshi.pro/) for creating such a nice package! I hope it will continue to be developed and improved!
+
+<script data-goatcounter="https://oberdieck.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>

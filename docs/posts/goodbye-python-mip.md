@@ -64,3 +64,6 @@ Unless something fundamental changes, I'm afraid they are right.
 ### Acknowledgements
 
 I would like to thank Sebastian Heger for reading a draft of the article and adding valuable comments!
+
+<script data-goatcounter="https://oberdieck.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>

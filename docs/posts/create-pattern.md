@@ -132,3 +132,7 @@ This, to me, is clean code:
 
 Clean code is not one big thing, it's a lot of little choices that make a code base easy and nice to work with. I believe using the `create` pattern is one little step in that direction, if one has to calculate things to create an object.
 
+<script data-goatcounter="https://oberdieck.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+
+        
