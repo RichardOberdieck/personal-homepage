@@ -1,6 +1,6 @@
 # Tech Talks
 
-While I was at [Gurobi](https://www.gurobi.com/) from 2020 to 2023, [Ed Klotz](https://youtu.be/zoUWrwd4EGc?si=ieVEl-i6R8bdL5wV) and I created the Tech Talks. The premise was simple:
+While I was at [Gurobi](https://www.gurobi.com/) from 2020 to 2023, [Ed Klotz](https://youtu.be/zoUWrwd4EGc?si=ieVEl-i6R8bdL5wV) and I created the Tech Talks, with [Kostja Siefen](https://www.linkedin.com/in/kostjasiefen/) providing moderation most of the time. The premise was simple:
 
 > Do a deep dive into a technical topic we find interesting that is appealing to beginners and experts.
 
