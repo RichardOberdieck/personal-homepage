@@ -132,11 +132,8 @@ extra_javascript:
 
 nav:
   - Blog: index.md
-  - Book club: 
-    - book_club/index.md
-    - A Mathematician's Apology: book_club/a-mathematicians-apology.md
-    - Fancy Bear Goes Phishing: book_club/fancy-bear-goes-phishing.md
   - Side projects: 
     - side_projects/index.md
+    - Tech Talks: side_projects/tech-talks.md
     - Parametric programming: side_projects/parametric-programming.md
   - About me: about-me.md
