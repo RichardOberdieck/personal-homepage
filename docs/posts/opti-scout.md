@@ -68,7 +68,16 @@ Finally, the objectives are as follows:
 - Distribute activities across the week
 - Aim to keep the number of priorities fulfilled similar between groups, i.e. "fairness"
 
-All in all, there were 2344 groups, 124 activities with a total of 1431 sessions. The good thing though is that this only had to be solved once, so model build and solve time constraints did not really apply.
+> As you may have guessed, "fairness" is a tricky one. In the end, Torben ended up limiting the maximum number of allocations to 3 activities since the solver was able to allocate up to 9 activities for some groups (small size, high age limit) and not so many for others. 
+
+All in all, there were 2344 groups, 124 activities with a total of 1431 sessions.
+
+The good thing though is that this only had to be solved once, so model build and solve time constraints did not really apply. Or so we thought.
+
+Torben had built a nice API integration to the activity database to download the actual data once it became available. Clicked solve, sent back a `.csv`, all good, right? Not really. It turned out that the data was not quite correct in the database, because the organizers forgot to account for the scount leaders in the group count, which lead to infeasible solutions. All of this meant that there was quite a big back and forth and Torben actually had to spend quite a bit of time to get the model building time from several hours to under an hour to make the iterations feasible.
+
+So even though it was an offline solution that did not have a time limit on the technical level, **time matters**.
+
 
 ## Why is this worth talking about?
 
